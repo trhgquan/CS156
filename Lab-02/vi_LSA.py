@@ -1,9 +1,10 @@
+from underthesea import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
 
 class LSA:
     def __init__(self, texts):
-        self.__texts = texts.split('\n')
+        self.__texts = [word_tokenize(param, format='text') for param in texts.split('\n')]
 
         with open('stopwords-dashed.txt', mode = 'r+', encoding = 'utf8') as f:
             stopwords = f.read().split('\n')
