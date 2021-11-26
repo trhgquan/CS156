@@ -11,6 +11,32 @@ def preprocess(sentence):
     sentence = sentence.replace('!', '')
     sentence = sentence.replace('"', '')
     sentence = sentence.replace('  ', ' ')
+
+    specials_ = {
+        ':)' : 'colonsmile',
+        ':(' : 'colonsad',
+        '@@' : 'colonsurprise',
+        '<3' : 'colonlove',
+        ':d' : 'colonsmilesmile',
+        ':3' : 'coloncontemn',
+        ':v' : 'colonbigsmile',
+        ':_' : 'coloncc',
+        ':p' : 'colonsmallsmile',
+        '>>' : 'coloncolon',
+        ':">' : 'colonlovelove',
+        '^^' : 'colonhihi',
+        ':' : 'doubledot',
+        ":'(" : 'colonsadcolon',
+        ':’(' : 'colonsadcolon',
+        ':@' : 'colondoublesurprise',
+        'v.v' : 'vdotv',
+        '...' : 'dotdotdot',
+        '/' : 'fraction',
+        'c#' : 'cshrap',
+    }
+
+    for key in specials_.keys():
+        sentence = sentence.replace(key, specials_[key])
     return sentence.lower().strip()
 
 def tokenize(sentence):
