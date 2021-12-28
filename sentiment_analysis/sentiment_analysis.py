@@ -40,7 +40,7 @@ def preprocess(sentence):
     return sentence.lower().strip()
 
 def tokenize(sentence):
-    return word_tokenize(sentence, format = 'word')
+    return word_tokenize(sentence, format = 'text').split(' ')
 
 def main(argv):
     input, output_file = '', ''
